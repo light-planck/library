@@ -1,9 +1,10 @@
-import math
-
 def calculate_divisors(n):
     divisors = []
     
-    for i in range(1, int(math.sqrt(n)) + 1):
+    for i in range(1, n + 1):
+        if i * i > n:
+            break
+
         if n % i != 0:
             continue
 
