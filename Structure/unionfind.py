@@ -30,18 +30,3 @@ class UnionFind:
 
     def size(self, x):
         return -self.parent[self.find(x)]
-
-n, q = map(int, input().split())
-
-uf = UnionFind(n)
-for _ in range(q):
-    p, a, b = map(int, input().split())
-
-    if p == 0:
-        uf.unite(a, b)
-        
-    elif p == 1:
-        if uf.is_same(a, b):
-            print("Yes")
-        else:
-            print("No")
