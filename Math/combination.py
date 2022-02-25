@@ -1,4 +1,6 @@
-def combination(n, r):
+from functools import lru_cache
+@lru_cache
+def comb(n, r):
     res = 1
     
     for i in range(r):
@@ -6,5 +8,3 @@ def combination(n, r):
         res //= i + 1
     
     return res
-
-print(combination(5, 2))
