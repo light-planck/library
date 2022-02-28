@@ -3,6 +3,7 @@ using namespace std;
 #define all(x) (x).begin(),(x).end()
 using ll = long long;
 
+// 約数列挙
 vector<ll> caldiv(ll n) {
   vector<ll> div;
   for (ll i = 1; i * i <= n; i++) {
