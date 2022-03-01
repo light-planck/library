@@ -4,13 +4,13 @@ using namespace std;
 #define all(x) (x).begin(),(x).end()
 using ll = long long;
 
-const int kMod = 1e9 + 7;
-long long Pow(long long x, long long n) {
+const int MOD = 1e9 + 7;
+long long mod_pow(long long x, long long n) {
   long long res = 1;
 
   while (n > 0) {
-    if (n & 1) (res *= x) %= kMod;
-    (x *= x) %= kMod;
+    if (n & 1) (res *= x) %= MOD;
+    (x *= x) %= MOD;
     n >>= 1;
   }
 

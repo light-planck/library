@@ -1,10 +1,11 @@
-// modint
+// https://qiita.com/drken/items/3b4fdf0a78e7a138cd9a#8-modint
+// modint: mod 計算を int を扱うように扱える構造体
 template<int MOD> struct Fp {
     long long val;
     constexpr Fp(long long v = 0) noexcept : val(v % MOD) {
         if (val < 0) val += MOD;
     }
-    constexpr int getmod() const { return MOD; }
+    constexpr int getmod() { return MOD; }
     constexpr Fp operator - () const noexcept {
         return val ? MOD - val : 0;
     }
@@ -30,8 +31,8 @@ template<int MOD> struct Fp {
         long long a = r.val, b = MOD, u = 1, v = 0;
         while (b) {
             long long t = a / b;
-            a -= t * b, swap(a, b);
-            u -= t * v, swap(u, v);
+            a -= t * b; swap(a, b);
+            u -= t * v; swap(u, v);
         }
         val = val * u % MOD;
         if (val < 0) val += MOD;
@@ -43,32 +44,19 @@ template<int MOD> struct Fp {
     constexpr bool operator != (const Fp& r) const noexcept {
         return this->val != r.val;
     }
-    friend constexpr istream& operator >> (istream& is, Fp<MOD>& x) noexcept {
-        is >> x.val;
-        x.val %= MOD;
-        if (x.val < 0) x.val += MOD;
-        return is;
-    }
-    friend constexpr ostream& operator << (ostream& os, const Fp<MOD>& x) noexcept {
+    friend constexpr ostream& operator << (ostream &os, const Fp<MOD>& x) noexcept {
         return os << x.val;
     }
-    friend constexpr Fp<MOD> modpow(const Fp<MOD>& r, long long n) noexcept {
+    friend constexpr Fp<MOD> modpow(const Fp<MOD> &a, long long n) noexcept {
         if (n == 0) return 1;
-        auto t = modpow(r, n / 2);
+        auto t = modpow(a, n / 2);
         t = t * t;
-        if (n & 1) t = t * r;
+        if (n & 1) t = t * a;
         return t;
-    }
-    friend constexpr Fp<MOD> modinv(const Fp<MOD>& r) noexcept {
-        long long a = r.val, b = MOD, u = 1, v = 0;
-        while (b) {
-            long long t = a / b;
-            a -= t * b, swap(a, b);
-            u -= t * v, swap(u, v);
-        }
-        return Fp<MOD>(u);
     }
 };
 
+
 const int MOD = 1000000007;
+// const int MOD = 998244353;
 using mint = Fp<MOD>;
