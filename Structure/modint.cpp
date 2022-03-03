@@ -57,6 +57,16 @@ template<int MOD> struct Fp {
 };
 
 
+mint comb(ll n, ll k) {
+  mint res = 1;
+  for (ll i = 0; i < k; ++i) {
+    res *= (n - i);
+    res /= (i + 1);
+  }
+  return res;
+}
+
+
 const int MOD = 1000000007;
 // const int MOD = 998244353;
 using mint = Fp<MOD>;
