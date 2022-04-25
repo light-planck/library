@@ -11,7 +11,7 @@ vector<long long> enumerate_divs(long long n) {
     divs.emplace_back(i);
 
     // n = i * iの場合を除いて、もう一方の約数を追加
-    if (n / i != i) div.push_back(n / i);
+    if (n / i != i) divs.emplace_back(n / i);
   }
   sort(divs.begin(), divs.end());
 
