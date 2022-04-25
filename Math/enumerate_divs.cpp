@@ -8,7 +8,7 @@ vector<long long> enumerate_divs(long long n) {
 
   for (long long i = 1; i * i <= n; i++) {
     if (n % i != 0) continue;
-    div.emplace_back(i);
+    divs.emplace_back(i);
 
     // n = i * iの場合を除いて、もう一方の約数を追加
     if (n / i != i) div.push_back(n / i);
