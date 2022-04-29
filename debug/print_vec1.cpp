@@ -1,4 +1,4 @@
-void print_vec1(string name, vector<ll> v) {
+void print_vec1(string name, const vector<ll>& v) {
   cout << name << ": ";
   
   for (ll i = 0; i < (ll)v.size(); i++) {
