@@ -32,6 +32,7 @@ template<class T> inline bool chmin(T& a, T b) { if (a > b) { a = b; return 1; }
 
 struct Combination {
   const long long MOD = 1e9+7;
+  // const long long MOD = 998244353;
   long long size_;
   vector<long long> fact, fact_inv, inv;
 
