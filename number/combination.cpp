@@ -31,28 +31,27 @@ template<class T> inline bool chmin(T& a, T b) { if (a > b) { a = b; return 1; }
 
 
 struct Combination {
-  const int MOD = 1e9+7;
-  // const int MOD = 998244353;
+  const long long MOD = 1e9+7;
+  long long size_;
   vector<long long> fact, fact_inv, inv;
-  int size;
 
-  Combination(int sz)
-      : size(sz),
-        fact(vector<long long>(sz + 10)),
-        fact_inv(vector<long long>(sz + 10)), 
-        inv(vector<long long>(sz + 10)) {
+  Combination(long long size)
+      : size_(size + 10),
+        fact(vector<long long>(size_)),
+        fact_inv(vector<long long>(size_)), 
+        inv(vector<long long>(size_)) {
     fact[0] = fact[1] = 1;
     fact_inv[0] = fact_inv[1] = 1;
     inv[1] = 1;
 
-    for (int i = 2; i < size + 10; ++i) {
+    for (long long i = 2; i < size_; ++i) {
       fact[i] = fact[i - 1] * i % MOD;
       inv[i] = MOD - inv[MOD % i] * (MOD / i) % MOD;
       fact_inv[i] = fact_inv[i - 1] * inv[i] % MOD;
     }
   }
 
-  long long comb(int n, int k) {
+  long long comb(long long n, long long k) {
     if (n < k) return 0;
     if (n < 0 || k < 0) return 0;
 
