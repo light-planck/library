@@ -24,6 +24,6 @@ int main() {
   ll m, n;
   cin >> m >> n;
 
-  cout << Pow(m, n) << "\n";
+  cout << mod_pow(m, n) << "\n";
   return 0;
 }
