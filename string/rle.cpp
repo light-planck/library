@@ -4,7 +4,7 @@ using namespace std;
 using ll = long long;
 
 
-auto rle(const string& s) {
+auto encode(const string& s) {
   vector<pair<char, ll>> res;
   ll l = 0;
   ll r = l + 1;
@@ -18,11 +18,21 @@ auto rle(const string& s) {
 }
 
 
+auto decode(const vector<pair<char, ll>>& p) {
+  string res = "";
+  for (auto [c, cnt] : p) {
+    rep(i, cnt) res += c;
+  }
+  return res;
+}
+
+
 int main() {
   string s = "hellooo";
-  auto t = rle(s);
+  auto t = encode(s);
   for (auto [c, cnt] : t) {
     cout << c << ": " << cnt << endl;
   }
+  cout << decode(t) << endl;
   return 0;
 }
