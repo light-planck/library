@@ -4,6 +4,7 @@ using namespace std;
 using ll = long long;
 
 
+// 素因数分解
 auto factorize(ll n) {
   map<ll, ll> primes;
 
