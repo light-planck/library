@@ -7,14 +7,12 @@ using ll = long long;
 // 10進数(ll)を2進数(string)に変換
 string to_binary(ll n) {
   string res = "";
-
   while (n > 0) {
     if (n & 1) res += '1';
     else res += '0';
     n >>= 1;
   }
   reverse(res.begin(), res.end());
-
   return res;
 }
 
