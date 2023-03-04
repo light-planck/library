@@ -5,7 +5,7 @@ using ll = long long;
 
 
 // 素因数分解
-auto factorize(ll n) {
+map<ll, ll> factorize(ll n) {
   map<ll, ll> primes;
 
   for (ll i = 2; i*i <= n; ++i) {
